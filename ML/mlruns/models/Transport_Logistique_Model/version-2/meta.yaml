@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1747674794974
+current_stage: None
+description: ''
+last_updated_timestamp: 1747674794974
+name: Transport_Logistique_Model
+run_id: 7d198a60bc3a479298f9b009871fea9c
+run_link: ''
+source: mlflow-artifacts:/847291753371202106/7d198a60bc3a479298f9b009871fea9c/artifacts/logisticregression_model
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/847291753371202106/7d198a60bc3a479298f9b009871fea9c/artifacts/logisticregression_model
+user_id: null
+version: 2

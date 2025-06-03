@@ -1,0 +1,70 @@
+2025-05-19 19:07:54,170 - INFO - === DÉMARRAGE DE L'ENTRAÎNEMENT ===
+2025-05-19 19:07:54,171 - INFO - Connexion à MongoDB - DB: reservation, Collection: transitaires
+2025-05-19 19:08:22,637 - ERROR - Erreur lors de la sauvegarde du modèle: C:\Users\HP\Desktop\CargoWeenApp\ML
+2025-05-19 19:08:22,637 - ERROR - Échec de l'entraînement: C:\Users\HP\Desktop\CargoWeenApp\ML
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\CargoWeenApp\ML\train_model.py", line 77, in train_and_save_model
+    save_model(model)
+  File "C:\Users\HP\Desktop\CargoWeenApp\ML\train_model.py", line 29, in save_model
+    "git_commit": Repo(search_parent_directories=True).head.object.hexsha,
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python39\lib\site-packages\git\repo\base.py", line 289, in __init__
+    raise InvalidGitRepositoryError(epath)
+git.exc.InvalidGitRepositoryError: C:\Users\HP\Desktop\CargoWeenApp\ML
+2025-05-19 19:12:59,456 - INFO - === DÉMARRAGE DE L'ENTRAÎNEMENT ===
+2025-05-19 19:12:59,457 - INFO - Connexion à MongoDB - DB: reservation, Collection: transitaires
+2025-05-19 19:13:21,508 - ERROR - Erreur lors de la sauvegarde du modèle: C:\Users\HP\Desktop\CargoWeenApp\ML
+2025-05-19 19:13:21,509 - ERROR - Échec de l'entraînement: C:\Users\HP\Desktop\CargoWeenApp\ML
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\CargoWeenApp\ML\train_model.py", line 77, in train_and_save_model
+    save_model(model)
+  File "C:\Users\HP\Desktop\CargoWeenApp\ML\train_model.py", line 29, in save_model
+    "git_commit": Repo(search_parent_directories=True).head.object.hexsha,
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python39\lib\site-packages\git\repo\base.py", line 289, in __init__
+    raise InvalidGitRepositoryError(epath)
+git.exc.InvalidGitRepositoryError: C:\Users\HP\Desktop\CargoWeenApp\ML
+2025-05-19 19:16:58,528 - INFO - === DÉMARRAGE DE L'ENTRAÎNEMENT ===
+2025-05-19 19:16:58,529 - INFO - Connexion à MongoDB - DB: reservation, Collection: transitaires
+2025-05-19 19:17:19,536 - WARNING - Aucun dépôt Git valide trouvé - utilisation de 'unknown' pour le commit
+2025-05-19 19:17:19,539 - INFO - Modèle principal sauvegardé dans C:\Users\HP\Desktop\CargoWeenApp\ML\best_model.pkl
+2025-05-19 19:17:19,543 - INFO - Backup du modèle créé: C:\Users\HP\Desktop\CargoWeenApp\ML\model_backups\best_model_20250519_191719.pkl
+2025-05-19 19:17:19,543 - INFO - Modèle sauvegardé (taille: 0.00 MB)
+2025-05-19 19:24:07,950 - INFO - === DÉMARRAGE DE L'ENTRAÎNEMENT ===
+2025-05-19 19:24:07,951 - INFO - Connexion à MongoDB - DB: reservation, Collection: transitaires
+2025-05-19 19:24:29,772 - ERROR - Erreur lors de la sauvegarde du modèle: C:\Users\HP\Desktop\CargoWeenApp\ML
+2025-05-19 19:24:29,773 - ERROR - Échec de l'entraînement: C:\Users\HP\Desktop\CargoWeenApp\ML
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\CargoWeenApp\ML\train_model.py", line 77, in train_and_save_model
+    save_model(model)
+  File "C:\Users\HP\Desktop\CargoWeenApp\ML\train_model.py", line 29, in save_model
+    "git_commit": Repo(search_parent_directories=True).head.object.hexsha,
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python39\lib\site-packages\git\repo\base.py", line 289, in __init__
+    raise InvalidGitRepositoryError(epath)
+git.exc.InvalidGitRepositoryError: C:\Users\HP\Desktop\CargoWeenApp\ML
+2025-05-19 19:33:57,743 - INFO - === DÉMARRAGE DE L'ENTRAÎNEMENT ===
+2025-05-19 19:33:57,744 - INFO - Connexion à MongoDB - DB: reservation, Collection: transitaires
+2025-05-19 19:34:17,927 - ERROR - Erreur lors de la sauvegarde du modèle: C:\Users\HP\Desktop\CargoWeenApp\ML
+2025-05-19 19:34:17,927 - ERROR - Échec de l'entraînement: C:\Users\HP\Desktop\CargoWeenApp\ML
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\CargoWeenApp\ML\train_model.py", line 77, in train_and_save_model
+    save_model(model)
+  File "C:\Users\HP\Desktop\CargoWeenApp\ML\train_model.py", line 29, in save_model
+    "git_commit": Repo(search_parent_directories=True).head.object.hexsha,
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python39\lib\site-packages\git\repo\base.py", line 289, in __init__
+    raise InvalidGitRepositoryError(epath)
+git.exc.InvalidGitRepositoryError: C:\Users\HP\Desktop\CargoWeenApp\ML
+2025-05-19 19:36:22,428 - INFO - === DÉMARRAGE DE L'ENTRAÎNEMENT ===
+2025-05-19 19:36:22,428 - INFO - Connexion à MongoDB - DB: reservation, Collection: transitaires
+2025-05-19 19:36:43,925 - ERROR - Erreur lors de la sauvegarde du modèle: name 'Repo' is not defined
+2025-05-19 19:36:43,925 - ERROR - Échec de l'entraînement: name 'Repo' is not defined
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\CargoWeenApp\ML\train_model.py", line 78, in train_and_save_model
+    save_model(model)
+  File "C:\Users\HP\Desktop\CargoWeenApp\ML\train_model.py", line 24, in save_model
+    git_commit = Repo(search_parent_directories=True).head.object.hexsha
+NameError: name 'Repo' is not defined
+2025-05-19 19:37:45,574 - INFO - === DÉMARRAGE DE L'ENTRAÎNEMENT ===
+2025-05-19 19:37:45,575 - INFO - Connexion à MongoDB - DB: reservation, Collection: transitaires
+2025-05-19 19:38:07,502 - WARNING - Aucun dépôt Git valide trouvé - utilisation de 'unknown' pour le commit
+2025-05-19 19:38:07,505 - INFO - Modèle principal sauvegardé dans C:\Users\HP\Desktop\CargoWeenApp\ML\best_model.pkl
+2025-05-19 19:38:07,507 - INFO - Backup du modèle créé: C:\Users\HP\Desktop\CargoWeenApp\ML\model_backups\best_model_20250519_193807.pkl
+2025-05-19 19:38:07,508 - INFO - Modèle sauvegardé (taille: 0.00 MB)
