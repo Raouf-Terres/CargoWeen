@@ -17,6 +17,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "framer-motion": "^12.4.2",
+    "html2pdf": "^0.0.11",
     "html2pdf.js": "^0.10.3",
     "jose": "^5.9.6",
     "jsonwebtoken": "^9.0.2",

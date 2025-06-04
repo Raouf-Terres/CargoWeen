@@ -25,11 +25,7 @@ export default function Home() {
   const [user, setUser] = useState(null);
 
   
-  const handleLogout = () => {
-    localStorage.removeItem('user');
-    // Rediriger vers la page de login
-    router.push('/login');
-  };
+  
 
 
    useEffect(() => {
@@ -78,7 +74,7 @@ export default function Home() {
 
       formData.append('pdfFileName', pdfFile.name);
 
-      const response = await fetch('/api/process-pdf', {
+      const response = await fetch('/api/Agent/process-pdf', {
         method: 'POST',
         body: formData,
       });
@@ -135,7 +131,7 @@ export default function Home() {
     formData.append('userEmail', user.email);
     formData.append('userPhone', user.phone);
 
-    const response = await fetch('/api/reservations', {
+    const response = await fetch('/api/Agent/reservations', {
       method: 'POST',
       body: formData,
     });
@@ -146,7 +142,7 @@ export default function Home() {
       throw new Error(result.message || 'Failed to create reservation');
     }
 
-    router.push(`/reservation/${result.reservationId}`);
+    router.push(`/Agent/reservation/${result.reservationId}`);
   } catch (error) {
     console.error('Reservation error:', error);
     setError(error.message);

@@ -4,7 +4,7 @@ from pymongo import MongoClient
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
+from sklearn.ensemble import  RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score, classification_report, precision_score, recall_score
@@ -39,8 +39,8 @@ def load_and_prepare_data(connection_string, db_name, collection_name):
             
         df = clean_data(df)
         
-        cols_to_keep = ["postalAddress", "region", "country", "city", "postalCode", 
-                       "prixKm", "prixArrivee", "douane", "companyName"]
+        cols_to_keep = ["address",  "country", "city", "postalCode", 
+                       "prixKm", "prixArrivee", "douane", "company"]
         df = df[[col for col in cols_to_keep if col in df.columns]]
         
         return df
@@ -54,8 +54,8 @@ def load_and_prepare_data(connection_string, db_name, collection_name):
 def clean_data(df):
     df = df.drop_duplicates()
     
-    if 'postalAddress' in df.columns:
-        df['postalAddress'] = df['postalAddress'].str.strip().fillna('Adresse Inconnue')
+    if 'address' in df.columns:
+        df['address'] = df['address'].str.strip().fillna('Adresse Inconnue')
     
     numeric_cols = ['prixKm', 'prixArrivee', 'douane']
     for col in numeric_cols:
@@ -65,7 +65,7 @@ def clean_data(df):
             df[col] = df[col].str.replace(',', '.')
             df[col] = pd.to_numeric(df[col], errors='coerce')
     
-    for col in ['region', 'city', 'country', 'companyName']:
+    for col in ['city', 'country', 'company']:
         if col in df.columns:
             df[col] = df[col].fillna('Inconnu')
     
@@ -82,7 +82,7 @@ def prepare_for_ml(df, target_col='prixKm'):
     else:
         raise ValueError(f"Colonne cible '{target_col}' introuvable")
     
-    categorical_cols = ['postalAddress', 'region', 'country', 'city', 'Code_Prefix']
+    categorical_cols = ['address', 'country', 'city', 'Code_Prefix']
     categorical_cols = [col for col in categorical_cols if col in df.columns]
     
     numeric_cols = [col for col in df.columns 
@@ -113,7 +113,7 @@ def prepare_for_ml(df, target_col='prixKm'):
     return X, y, scaler, {'numeric': numeric_imputer, 'categorical': categorical_imputer}, encoders, feature_names
 
 def train_and_evaluate_models(X, y, feature_names=None):
-    mlflow.set_tracking_uri("http://34.76.98.147")
+    mlflow.set_tracking_uri("http://localhost:5000")
     mlflow.set_experiment("Transport_Logistique_Optimization")
 
     models = {
@@ -123,7 +123,7 @@ def train_and_evaluate_models(X, y, feature_names=None):
         "SVM": SVC(kernel='linear', probability=True, random_state=42),
        }
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
     best_score = -1
     best_model = None

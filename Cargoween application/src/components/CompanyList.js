@@ -29,7 +29,7 @@ const CompanyList = ({ companies = [], onSelectCompany, selectedCompany, deliver
       pdfFile: company.pdfFile // Ajout du PDF si disponible
     };
     
-    router.push(`/reservation/${company.id}?data=${encodeURIComponent(JSON.stringify(companyData))}`);
+    router.push(`/Agent/reservation/${company.id}?data=${encodeURIComponent(JSON.stringify(companyData))}`);
   };
 
   return (

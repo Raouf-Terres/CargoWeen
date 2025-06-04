@@ -301,7 +301,7 @@ def calculate_delivery_distance(airport_coords, delivery_address):
     
 
 def geocode_addresses(df):
-    if 'postalAddress' not in df.columns:
+    if 'address' not in df.columns:
         return df
     
     geolocator = Nominatim(
@@ -398,8 +398,8 @@ def calculate_tariffs(df, nearest_companies, delivery_distance_km,  delivery_coo
         
         tariffs.append({
             'Company ID': str(company['_id']),
-            'Company Name': company['companyName'],
-            'Postal Address': company['postalAddress'],
+            'Company Name': company['company'],
+            'Postal Address': company['address'],
             'Distance to Airport (km)': company['distance_km'],
             'Delivery Distance (km)': delivery_distance_km,
             'Prix KM': prix_km,
@@ -469,7 +469,7 @@ def find_nearest_companies_ui(df, airport_coords=None, delivery_address=None):
         nearest = find_nearest_companies(df, airport_lat, airport_lon)
         
         print("\nTop 5 des sociétés les plus proches:")
-        print(nearest[['_id', 'companyName', 'postalAddress', 'distance_km']].to_string(index=False))
+        print(nearest[['_id', 'company', 'address', 'distance_km']].to_string(index=False))
         
         # Calcul de la distance de livraison
         if delivery_address:
@@ -528,8 +528,8 @@ def main():
         return
 
     # 4. Configuration MongoDB
-    MONGO_CONNECTION_STRING = "mongodb+srv://dghaiesoumaima0:2QM6D3ftO5H6TxH9@cluster0.g1zvwyt.mongodb.net/?retryWrites=true&w=majority"
-    DB_NAME = "reservation"
+    MONGO_CONNECTION_STRING = "mongodb+srv://Cargoween:raouf123456@cluster0.ckkymmz.mongodb.net/"
+    DB_NAME = "test"
     COLLECTION_NAME = "transitaires"
 
     try:

@@ -20,7 +20,7 @@ export default function RecommendationResult({
   const normalizedCompanies = recommendations.companies?.map(company => {
     return {
       id: company.id || company._id || Math.random().toString(36).substr(2, 9),
-      CompanyName: company.companyName || company.name || 'Nom inconnu',
+      CompanyName: company.company || company.name || 'Nom inconnu',
       PostalAddress: company.postalAddress || company.address || 'Adresse inconnue',
       DistanceToAirport: company.DistanceToAirport || company['Distance to Airport (km)'] || company.distance || 0,
       DeliveryDistance: company.DeliveryDistance || company['Delivery Distance (km)'] || company.deliveryDistance ||0,

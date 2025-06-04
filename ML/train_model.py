@@ -6,8 +6,7 @@ import logging
 from datetime import datetime
 import git
 from git import Repo
-if not os.path.exists('CargoWeenApp/app'):
-    os.makedirs('CargoWeenApp/app')
+
 # Configuration du logging
 logging.basicConfig(
     level=logging.INFO,
@@ -33,12 +32,12 @@ def save_model(model):
         }
         
         # Sauvegarder
-        joblib.dump(model_package, "ML/best_model.pkl")
+        joblib.dump(model_package, "best_model.pkl")
         logger.info("Modèle principal sauvegardé dans best_model.pkl")
         
         # Backup avec timestamp
-        os.makedirs("ML/model_backups", exist_ok=True)
-        backup_path = f"ML/model_backups/best_model_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pkl"
+        os.makedirs("model_backups", exist_ok=True)
+        backup_path = f"model_backups/best_model_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pkl"
         joblib.dump(model_package, backup_path)
         logger.info(f"Backup du modèle créé: {backup_path}")
         
@@ -53,8 +52,8 @@ def train_and_save_model():
         load_dotenv()
         
         # Configuration avec validation
-        MONGO_CONNECTION_STRING = "mongodb+srv://dghaiesoumaima0:2QM6D3ftO5H6TxH9@cluster0.g1zvwyt.mongodb.net/?retryWrites=true&w=majority"
-        DB_NAME = os.getenv("DB_NAME", "reservation")
+        MONGO_CONNECTION_STRING = "mongodb+srv://Cargoween:raouf123456@cluster0.ckkymmz.mongodb.net/"
+        DB_NAME = os.getenv("DB_NAME", "test")
         COLLECTION_NAME = os.getenv("COLLECTION_NAME", "transitaires")
         
         if not MONGO_CONNECTION_STRING:
@@ -78,8 +77,8 @@ def train_and_save_model():
         save_model(model)
         
         # Vérification
-        if os.path.exists("ML/best_model.pkl"):
-            model_size = os.path.getsize("ML/best_model.pkl") / (1024 * 1024)  # Taille en MB
+        if os.path.exists("best_model.pkl"):
+            model_size = os.path.getsize("best_model.pkl") / (1024 * 1024)  # Taille en MB
             logger.info(f"Modèle sauvegardé (taille: {model_size:.2f} MB)")
             return True
             

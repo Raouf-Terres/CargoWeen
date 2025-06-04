@@ -76,8 +76,8 @@ export default function Sidebar({ onToggle }) {
           {isOpen && userMenuOpen && (
   <div className="ml-8 flex flex-col space-y-2 text-sm">
     <SidebarSubLink icon={<FaSearch />} text="Rechercher" href="/Agent/recommandation" />
-    <SidebarSubLink icon={<FaClipboardList />} text="Mes agents" href="/Transitaire/Comptes/Liste" />
-    <SidebarSubLink icon={<FaFileInvoiceDollar />} text="Mes reçus" href="/Transitaire/Comptes/Liste" />
+    <SidebarSubLink icon={<FaClipboardList />} text="Mes agents" href="/Agent/mes-reservations" />
+    <SidebarSubLink icon={<FaFileInvoiceDollar />} text="Mes reçus" href="/Agent/mes-reservations/entreprise" />
   </div>
 )}
           <SidebarLink icon={<FaCog />} text="Paramètres" isOpen={isOpen} />
