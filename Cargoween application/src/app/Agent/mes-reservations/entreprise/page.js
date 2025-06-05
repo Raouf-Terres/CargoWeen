@@ -42,22 +42,20 @@ export default function ReceivedReservations() {
   useEffect(() => {
     const fetchReservations = async () => {
       try {
-        const user = JSON.parse(localStorage.getItem('user'));
-        if (!user?._id) {
-          router.push('/');
-          return;}
+        const token = localStorage.getItem("token");
+      if (!token || !user?._id) return;
 
         const response = await fetch(
-          `/api/Agent/reservations/by-company?companyId=${user._id}`
-        );
-        
-        const data = await response.json();
-        
-        if (!response.ok) {
-          throw new Error(data.message || 'Erreur lors de la récupération');
+          `/api/Agent/reservations/by-company?companyId=${user._id}`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
         }
-
-        setReservations(data.data || []);
+      });
+        
+        const { data } = await response.json();
+setReservations(data || []);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -66,7 +64,7 @@ export default function ReceivedReservations() {
     };
 
     fetchReservations();
-  }, [router]);
+  }, [user]);
 
   const updateStatus = async (reservationId, status) => {
     try {
@@ -127,7 +125,39 @@ export default function ReceivedReservations() {
         <div className="p-8">
           <div className="flex justify-between items-center mb-8">
             <h1 className="text-2xl font-bold text-gray-800">Système de Recommandation de Transitaire</h1>
+<div className="relative">
+              <button
+                className="flex items-center bg-[#3F6592] text-white py-1 px-4 rounded-full shadow-md"
+                onClick={() => setUserMenuOpen(!userMenuOpen)}
+              >
+                <FaUser className="mr-2" />
+                <span>{user ? `${user.firstname} ${user.lastname}` : "Utilisateur"}</span>
+              </button>
 
+              {userMenuOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white text-[#3F6592] rounded-lg shadow-lg z-50">
+                  <button
+                    onClick={() => {
+                      setUserMenuOpen(false);
+                      window.location.href = "/Transitaire/Profil";
+                    }}
+                    className="w-full text-left px-4 py-2 hover:bg-gray-100"
+                  >
+                    Modifier profil
+                  </button>
+                  <button
+                    onClick={() => {
+                      localStorage.removeItem("token");
+                      document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                      window.location.href = "/login";
+                    }}
+                    className="w-full text-left px-4 py-2 hover:bg-gray-100"
+                  >
+                    Se déconnecter
+                  </button>
+                </div>
+              )}
+            </div>
             
           </div>
 
