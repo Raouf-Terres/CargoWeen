@@ -212,22 +212,7 @@ export default function ReservationDetails() {
                     >
                       <FaPrint className="mr-2" /> Imprimer
                     </button>
-                    <button
-                      onClick={() => {
-                        const firstDoc = reservation.documents.pdfInitial ||
-                          reservation.documents.facture ||
-                          reservation.documents.bonLivraison ||
-                          reservation.documents.euri ||
-                          reservation.documents.fds ||
-                          (reservation.documents.autres && reservation.documents.autres[0]);
-                        if (firstDoc) {
-                          handleDownload(firstDoc.gridFSId);
-                        }
-                      }}
-                      className="flex items-center bg-[#3F6592] text-white hover:bg-[#2E4A6D] py-2 px-4 rounded-lg shadow transition-colors"
-                    >
-                      <FaDownload className="mr-2" /> Télécharger PDF
-                    </button>
+                    
                   </div>
                 </div>
 
@@ -240,12 +225,12 @@ export default function ReservationDetails() {
                         <p className="font-medium">{formatDate(reservation.createdAt)}</p>
                       </div>
                       <div>
-                        <p className="text-sm text-gray-500">Client</p>
-                        <p className="font-medium">{reservation.company}</p>
+                        <p className="text-sm text-gray-500">Société</p>
+                        <p className="font-medium">{reservation.companyName}</p>
                       </div>
                       <div>
                         <p className="text-sm text-gray-500">Email</p>
-                        <p className="font-medium">{reservation.userId?.email}</p>
+                        <p className="font-medium">{reservation.companyEmail}</p>
                       </div>
                       <div>
                         <p className="text-sm text-gray-500">Adresse de livraison</p>
@@ -259,7 +244,7 @@ export default function ReservationDetails() {
                     <div className="space-y-4">
                       <div>
                         <p className="text-sm text-gray-500">Distance</p>
-                        <p className="font-medium">{reservation.distance} km</p>
+                        <p className="font-medium">{reservation.distanceLivraison} km</p>
                       </div>
                       <div>
                         <p className="text-sm text-gray-500">Prix par km</p>
@@ -302,6 +287,23 @@ export default function ReservationDetails() {
                       </div>
                     )}
 
+{reservation.files?.recueAvion && (
+                      <div className="border border-gray-200 rounded-lg p-4 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <FaFilePdf className="text-red-500 text-2xl" />
+                          <div>
+                            <p className="font-medium">Recue d'Avion</p>
+                            <p className="text-sm text-gray-500">Document d'Avion</p>
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => handleDownload(reservation.files.recueAvion, 'recueAvion.pdf')}
+                          className="text-blue-600 hover:text-blue-800"
+                        >
+                          <FaDownload />
+                        </button>
+                      </div>
+                    )}
                     {reservation.files?.bonLivraison && (
                       <div className="border border-gray-200 rounded-lg p-4 flex items-center justify-between">
                         <div className="flex items-center gap-3">
