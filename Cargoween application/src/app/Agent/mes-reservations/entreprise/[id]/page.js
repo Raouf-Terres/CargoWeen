@@ -256,7 +256,7 @@ export default function ReservationDetail() {
                   <div className="space-y-4">
                     <div>
                       <p className="text-sm text-gray-500">Adresse de livraison</p>
-                      <p className="font-medium">{reservation.address}</p>
+                      <p className="font-medium">{reservation.deliveryAddress}</p>
                     </div>
                     <div>
                       <p className="text-sm text-gray-500">Date de réservation</p>
@@ -300,6 +300,23 @@ export default function ReservationDetail() {
                         </div>
                         <button
                           onClick={() => handleDownload(reservation.files.facture, 'facture.pdf')}
+                          className="text-blue-600 hover:text-blue-800"
+                        >
+                          <FaDownload />
+                        </button>
+                      </div>
+                    )}
+                    {reservation.files?.recueAvion && (
+                      <div className="border border-gray-200 rounded-lg p-4 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <FaFilePdf className="text-red-500 text-2xl" />
+                          <div>
+                            <p className="font-medium">Recue d'Avion</p>
+                            <p className="text-sm text-gray-500">Document d'Avion</p>
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => handleDownload(reservation.files.recueAvion, 'recueAvion.pdf')}
                           className="text-blue-600 hover:text-blue-800"
                         >
                           <FaDownload />
@@ -406,7 +423,7 @@ export default function ReservationDetail() {
                   <div className="space-y-3">
                     <div className="flex justify-between">
                       <p className="text-gray-600">Distance</p>
-                      <p className="font-medium">{reservation.distance} km</p>
+                      <p className="font-medium">{reservation.distanceLivraison} km</p>
                     </div>
                     <div className="flex justify-between">
                       <p className="text-gray-600">Prix par km</p>
