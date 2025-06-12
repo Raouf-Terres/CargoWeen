@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import ChatBot from '@/components/ChatBot'; 
 import Link from 'next/link';
 import { FaUser, FaEye, FaLock } from 'react-icons/fa';
 import Sidebar from '@/components/Sidebar';
@@ -221,6 +222,17 @@ export default function UserReservations() {
           </div>
         </div>
       </main>
+      {/* ChatBot flottant */}
+        <div
+          style={{
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            zIndex: 1000,
+          }}
+        >
+          <ChatBot />
+        </div>
     </div>
   );
 }

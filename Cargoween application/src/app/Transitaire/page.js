@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
+import ChatBot from '@/components/ChatBot'; 
 import { FaUser } from "react-icons/fa";
 
 export default function AddTransitaire() {
@@ -121,8 +122,23 @@ Tableau de bord de transitaire          </h2>
   <img src="/dash.jpg" alt="Dashboard" className="rounded-xl shadow-md w-full max-w-6xl" />
 </div>
         </div>
+        
       </main>
-    </div>
+      {/* ChatBot flottant */}
+        <div
+          style={{
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            zIndex: 1000,
+          }}
+        >
+          <ChatBot />
+        </div>
+      </div>
+  
+    
   );
+
 }
 

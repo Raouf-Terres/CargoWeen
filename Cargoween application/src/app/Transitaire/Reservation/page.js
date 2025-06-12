@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { FaPlaneDeparture, FaPlaneArrival, FaCalendarAlt, FaUser, FaPlane } from "react-icons/fa";
 import Sidebar from "@/components/Sidebar";
 import FlightDetailsModal from "@/components/FlightDetailsModal";
-
+import ChatBot from '@/components/ChatBot'; 
 import Toast from "@/components/Toast";
 
 
@@ -884,7 +884,17 @@ value={cargoData.pieces === "" ? "" : Number(cargoData.pieces)}
     onClose={() => setToast({ ...toast, show: false })}
   />
 )}
-
+    {/* ChatBot flottant */}
+            <div
+              style={{
+                position: "fixed",
+                bottom: "20px",
+                right: "20px",
+                zIndex: 1000,
+              }}
+            >
+              <ChatBot />
+            </div>
     </div>
   );
 }

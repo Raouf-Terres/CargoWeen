@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation'; // Ajout de l'import router
 import { FaUser, FaSearch } from 'react-icons/fa';
 import {  FiLock, FiUser } from 'react-icons/fi';
+import ChatBot from '@/components/ChatBot'; 
 import Sidebar from '@/components/Sidebar';
 import FileUpload from '@/components/FileUpload';
 import AddressInput from '@/components/AddressInput';
@@ -272,6 +273,17 @@ export default function Home() {
           )}
         </div>
       </main>
+      {/* ChatBot flottant */}
+        <div
+          style={{
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            zIndex: 1000,
+          }}
+        >
+          <ChatBot />
+        </div>
     </div>
   );
 }

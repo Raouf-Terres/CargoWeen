@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Sidebar from "@/components/Sidebar";
+import ChatBot from '@/components/ChatBot'; 
 import { FaSearch, FaUser, FaEye, FaTrash, FaFileDownload, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { jsPDF } from "jspdf";
 import autoTable from "jspdf-autotable";
@@ -301,6 +302,17 @@ onClick={() => {
 
         </div>
       </main>
+      {/* ChatBot flottant */}
+        <div
+          style={{
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            zIndex: 1000,
+          }}
+        >
+          <ChatBot />
+        </div>
       {toast.show && (
   <Toast
     message={toast.message}

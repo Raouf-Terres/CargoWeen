@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Sidebar from "@/components/Sidebar";
+import ChatBot from '@/components/ChatBot'; 
 import { FaEnvelope, FaUser, FaPhone, FaBriefcase, FaBuilding, FaGlobe, FaCity, FaHome, FaBarcode, FaIdBadge, FaEye, FaEdit, FaTrash, FaSearch, FaFileDownload, FaUserFriends, FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import * as XLSX from "xlsx"; // Pour l'export Excel
 import Papa from "papaparse"; // Pour l'export CSV
@@ -594,6 +595,17 @@ const handleExportPDF = () => {
   </div>
 )}
       </main>
+      {/* ChatBot flottant */}
+        <div
+          style={{
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            zIndex: 1000,
+          }}
+        >
+          <ChatBot />
+        </div>
     </div>
   );
 }

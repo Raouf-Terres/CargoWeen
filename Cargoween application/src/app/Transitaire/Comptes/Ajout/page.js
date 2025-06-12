@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
+import ChatBot from '@/components/ChatBot'; 
 import {
   FaCog, FaEnvelope, FaUser, FaPhone, FaMapMarkerAlt,
   FaBriefcase, FaBuilding, FaIdBadge, FaLock, FaGlobe,
@@ -145,6 +146,17 @@ onClick={() => setUserMenuOpen(!userMenuOpen)}
           </form>
         </div>
       </main>
+      {/* ChatBot flottant */}
+        <div
+          style={{
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            zIndex: 1000,
+          }}
+        >
+          <ChatBot />
+        </div>
     </div>
   );
 }
@@ -162,5 +174,6 @@ function InputField({ icon, name, placeholder, handleChange, type = "text" }) {
         required
       />
     </div>
+    
   );
 }

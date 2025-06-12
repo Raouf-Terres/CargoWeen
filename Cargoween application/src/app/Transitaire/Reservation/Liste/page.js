@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Sidebar from "@/components/Sidebar";
+import ChatBot from '@/components/ChatBot'; 
 import { useRouter } from "next/navigation"; 
 
 import {
@@ -172,6 +173,17 @@ export default function ReservationsPage() {
           </div>
         </div>
       </main>
+      {/* ChatBot flottant */}
+        <div
+          style={{
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            zIndex: 1000,
+          }}
+        >
+          <ChatBot />
+        </div>
     </div>
   );
 }

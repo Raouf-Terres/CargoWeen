@@ -6,6 +6,7 @@ import TransitairesSection from '../components/TransitairesSection';
 import Navbar from '../components/Navbar';
 import CompagniesAériennes from '@/components/CompagniesAériennes';
 import Temoignages from '@/components/Temoignages';
+import ChatBot from '@/components/ChatBot'; 
 import { useEffect } from "react";
 
 
@@ -37,6 +38,15 @@ export default function Home() {
       <Temoignages/>
 
       <Footer />
+      {/* ChatBot en bas à droite */}
+      <div style={{
+        position: 'fixed',
+        bottom: '20px',
+        right: '20px',
+        zIndex: 1000,
+      }}>
+        <ChatBot />
+      </div>
     </>
   );
 }
