@@ -88,7 +88,7 @@ export default function ChatBot() {
       <div className="chatbot-icon" onClick={() => setIsOpen(!isOpen)}>
         <img src="/essai-icon-chatbot.png" alt="Chatbot" />
         {showWelcome && (<div className="welcome-popup animated-popup">
-    👋 Bonjour <strong>Yessine</strong> !
+    👋 Bonjour <strong></strong> !
   </div>)}
       </div>
 

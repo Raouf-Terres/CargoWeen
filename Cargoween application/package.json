@@ -10,6 +10,7 @@
     "server": "node server/server.js"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "amadeus": "^11.0.0",
     "axios": "^1.8.4",
     "bcryptjs": "^3.0.0",
